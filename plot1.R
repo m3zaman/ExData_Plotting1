@@ -12,6 +12,10 @@ colnames(d) <- colnames(h)
 
 d$Date <- as.Date(d$Date, "%d/%m/%Y")
 
+## filter desired dates with dplyr package
+library(dplyr)
+d <- filter(d, Date >= as.Date("2007-02-01"), Date < as.Date("2007-02-03"))
+
 ## now the histogram
 hist(d$Global_active_power, main="Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col="red")
 
